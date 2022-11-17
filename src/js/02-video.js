@@ -12,7 +12,6 @@ const options = {
   seconds: 3.034,
 };
 const player = new Player(iframe, options);
-console.log(player);
 
 const onTimeUpdate = function ({ seconds }) {
   localStorage.setItem(LOCALSTORAGE_KEY, seconds);
