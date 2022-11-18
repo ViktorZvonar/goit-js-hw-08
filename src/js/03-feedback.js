@@ -9,8 +9,9 @@ const formData = {};
 
 populateData();
 
-function onFormInput(event) {
-  formData[event.target.name] = event.target.value;
+function onFormInput() {
+  formData.email = inputEl.value;
+  formData.message = textEl.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 }
 
@@ -19,6 +20,8 @@ function onFormSubmit(event) {
   event.preventDefault();
   event.currentTarget.reset();
   localStorage.removeItem(STORAGE_KEY);
+  inputEl.value = '';
+  textEl.value = '';
 }
 
 formEl.addEventListener('input', throttle(onFormInput, 500));
